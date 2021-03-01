@@ -11,19 +11,19 @@ In addition to what Facil.io already provides, Sencillo adds...
 #### Advanced route handler with inline parameters:
 ```
 Routes {
-    Get('/') { 
+    Get("/") { 
         ... 
     }
     
-    Post('/profile/:user/:object') { 
+    Post("/profile/:user/:object") { 
         ...
     }
     
-    Put('/uploads/:file') { 
+    Put("/uploads/:file") { 
         ... 
     }
     
-    Delete('/:foo/:bar/:baz') { 
+    Delete("/:foo/:bar/:baz") { 
         ... 
     }
 }
