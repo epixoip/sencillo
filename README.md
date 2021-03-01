@@ -109,7 +109,7 @@ Object myList = listOf((
 
 assert(List.size(myList) == 3);
 assert(List.contains(myList, Int(2)));
-assert(List.indexOf(Float(3.0)) == 2);
+assert(List.indexOf(myList, Float(3.0)) == 2);
 ```
 listOf()  
 List.create()  
