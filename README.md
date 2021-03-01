@@ -2,7 +2,7 @@
 
 _NOTE: This is still a WIP and not currently ready for use._
 
-Sencillo is a single-header C11 library that adds high-level abstraction and helper functions to Facil.io based webapps using a syntax inspired by Kotlin, including pseudo classes and lambdas.
+Sencillo is a single-header C11 library that adds high-level abstraction and helper functions to Facil.io based webapps using a syntax inspired by Kotlin, including pseudo classes/types and lambda functions.
 
 In addition to what Facil.io already provides, Sencillo adds...
 
@@ -16,43 +16,43 @@ Put('/uploads/:file') { ... }
 Delete('/:foo/:bar/:baz') { ... }
 ```
 #### Database pseudo class and generic abstraction (currently only MySQL supported):
-Database.connect()
-Database.close()
-Database.prepare()
-Database.bind()
-Database.exec()
-Database.fetchrow()
-Database.column()
+Database.connect()  
+Database.close()  
+Database.prepare()  
+Database.bind()  
+Database.exec()  
+Database.fetchrow()  
+Database.column()  
 
 #### Central configuration of both Sencillo and Facil.io via Config pseudo class with JSON config file:
-Config.get()
-Config.set()
-Config.load()
+Config.get()  
+Config.set()  
+Config.load()  
 
 #### Server pseudo class:
-Server.start()
-Server.stop()
+Server.start()  
+Server.stop()  
 
 #### Session pseudo class & session engine:
-Session.create()
-Session.destroy()
-Session.get()
-Session.set()
-Session.getId()
+Session.create()  
+Session.destroy()  
+Session.get()  
+Session.set()  
+Session.getId()  
 
 #### HTTP helper functions:
-Header()
-Cookie()
-Cookies()
-Method()
-Path()
-Params()
-Param()
-Error()
-Redirect()
+Header()  
+Cookie()  
+Cookies()  
+Method()  
+Path()  
+Params()  
+Param()  
+Error()  
+Redirect()  
 
 #### Simplified Mustache templating:
-ModelAndView()
+ModelAndView()  
 
 #### forEach loops with lambdas and implicit _it_ parameters:
 ```
@@ -63,53 +63,53 @@ forEach(someObject, {
 ```
 
 #### HashMap pseudo class:
-mapOf()
-HashMap.create()
-HashMap.keys()
-HashMap.values()
-HashMap.get()
-HashMap.replace()
-HashMap.set()
-HashMap.remove()
-HashMap.contains()
-HashMap.isEmpty()
-HashMap.clear()
-HashMap.count()
+mapOf()  
+HashMap.create()  
+HashMap.keys()  
+HashMap.values()  
+HashMap.get()  
+HashMap.replace()  
+HashMap.set()  
+HashMap.remove()  
+HashMap.contains()  
+HashMap.isEmpty()  
+HashMap.clear()  
+HashMap.count()  
 
 #### List pseudo class:
-listOf()
-List.create()
-List.first()
-List.last()
-List.pop()
-List.get()
-List.replace()
-List.remove()
-List.isEmpty()
-List.contains()
-List.append()
-List.size()
-List.indexOf()
+listOf()  
+List.create()  
+List.first()  
+List.last()  
+List.pop()  
+List.get()  
+List.replace()  
+List.remove()  
+List.isEmpty()  
+List.contains()  
+List.append()  
+List.size()  
+List.indexOf()  
 
 #### String pseudo class:
-String.create()
-String.copy()
-String.immutable()
-String.clear()
-String.length()
-String.append()
-String.appendInt()
-String.appendFmt()
-String.fromFile()
+String.create()  
+String.copy()  
+String.immutable()  
+String.clear()  
+String.length()  
+String.append()  
+String.appendInt()  
+String.appendFmt()  
+String.fromFile()  
 
 #### Pseudo types and conversions:
-String()
-toString()
-Int()
-toInt()
-Float()
-toFloat()
-toJSON()
-fromJSON()
-getClass()
-instanceOf()
+String()  
+toString()  
+Int()  
+toInt()  
+Float()  
+toFloat()  
+toJSON()  
+fromJSON()  
+getClass()  
+instanceOf()  
