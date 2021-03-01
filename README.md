@@ -11,21 +11,21 @@ In addition to what Facil.io already provides, Sencillo adds...
 #### Advanced route handler with inline parameters:
 ```
 Routes {
-    Get("/") { 
-        ... 
-    }
-    
-    Post("/profile/:user/:object") { 
+    Get("/", ({
         ...
-    }
+    }));
     
-    Put("/uploads/:file") { 
-        ... 
-    }
+    Post("/profile/:user/:object", ({
+       ...
+    }));
     
-    Delete("/:foo/:bar/:baz") { 
-        ... 
-    }
+    Put("/uploads/:file", ({
+        ...
+    }));
+    
+    Delete("/:foo/:bar/:baz", ({
+        ...
+    }));
 }
 ```
 #### Database pseudo class and generic abstraction (currently only MySQL supported):
