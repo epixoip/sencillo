@@ -10,10 +10,23 @@ In addition to what Facil.io already provides, Sencillo adds...
 
 #### Advanced route handler with inline parameters:
 ```
-Get('/') { ... }
-Post('/profile/:user/:object') { ... }
-Put('/uploads/:file') { ... }
-Delete('/:foo/:bar/:baz') { ... }
+Routes {
+    Get('/') { 
+        ... 
+    }
+    
+    Post('/profile/:user/:object') { 
+        ...
+    }
+    
+    Put('/uploads/:file') { 
+        ... 
+    }
+    
+    Delete('/:foo/:bar/:baz') { 
+        ... 
+    }
+}
 ```
 #### Database pseudo class and generic abstraction (currently only MySQL supported):
 Database.connect()  
@@ -88,7 +101,11 @@ HashMap.count()
 
 #### List pseudo class:
 ```
-Object myList = listOf(( String("1st"), Int(2), Float(3.0) ));
+Object myList = listOf((
+    String("1st"), 
+    Int(2), 
+    Float(3.0) 
+));
 
 assert(List.size(myList) == 3);
 assert(List.contains(myList, Int(2)));
