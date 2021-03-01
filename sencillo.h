@@ -1029,32 +1029,42 @@ void __Generate_Csrf_token(http_s *request, char *SessionId) {
 
 /* route handler */
 
-bool __Path_Matches(http_s *request, char *route) {
-    char *__route = strdup(route);
-    char *__path  = toString(request->path);
-
-    __path = strtok(__path, "?");
-
-    if (strchr(__route, ':') == null) {
-        if (strcmp(__route, __path) == 0) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    if (!__route || !__path) {
+bool __Path_Matches(http_s *request, char *__route) {
+    char *route = strdup(route);
+    
+    if (!route) {
         FIO_LOG_ERROR("Failed to allocate memory!");
         return false;
+    }
+    
+    char *path = toString(request->path);
+    
+    if (!path) {
+        FIO_LOG_ERROR("No request path?");
+        free(route);
+        return false;
+    }
+
+    path = strtok(path, "?");
+
+    if (strchr(route, ':') == null) {
+        if (strcmp(route, path) == 0) {
+            free(route);
+            return true;
+        } else {
+            free(route);
+            return false;
+        }
     }
 
     int routeWordCnt = 0;
     int pathWordCnt  = 0;
 
-    for (int i = 0; __route[i]; __route[i] == '/' ? routeWordCnt++, i++ : i++);
-    for (int i = 0; __path[i];  __path[i]  == '/' ? pathWordCnt++,  i++ : i++);
+    for (int i = 0; route[i]; route[i] == '/' ? routeWordCnt++, i++ : i++);
+    for (int i = 0; path[i];  path[i]  == '/' ? pathWordCnt++,  i++ : i++);
 
     if (routeWordCnt != pathWordCnt) {
+        free(route);
         return false;
     }
 
@@ -1075,9 +1085,7 @@ bool __Path_Matches(http_s *request, char *route) {
             pathWords[matches++] = pathWordNext;
         } else {
             if (strcmp(routeWordNext, pathWordNext)) {
-                free(__route);
-                free(__path);
-
+                free(route);
                 return false;
             }
         }
@@ -1086,8 +1094,7 @@ bool __Path_Matches(http_s *request, char *route) {
         pathWordNext  = strtok_r(null, "/", &pathRemaining);
     }
 
-    free(__route);
-    free(__path);
+    free(route);
 
     for (int i = 0; i < matches; i++) {
         http_add2hash(request->params,
