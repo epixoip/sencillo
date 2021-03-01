@@ -40,14 +40,12 @@ Session.get()
 Session.set()  
 Session.getId()  
 
-#### HTTP helper functions:
+#### HTTP helper functions and variadic macros:
 Header()  
-Cookie()  
-Cookies()  
+Cookie() / Cookies()  
 Method()  
 Path()  
-Params()  
-Param()  
+Param() / Params()  
 Error()  
 Redirect()  
 
@@ -56,13 +54,25 @@ ModelAndView()
 
 #### forEach loops with lambdas and implicit _it_ parameters:
 ```
-forEach(someObject, {
+forEach(myMapObject, ({
     char *key = toString(it);
     printf("key == %s\n", key);
-});
+}));
 ```
 
 #### HashMap pseudo class:
+```
+Object myMap = mapOf(({
+    String("this") to String("that"),
+    String("that") to Int(42)
+}));
+
+assert(HashMap.contains(myMap, "this"));
+
+HashMap.clear(myMap);
+
+assert(HashMap.isEmpty());
+```
 mapOf()  
 HashMap.create()  
 HashMap.keys()  
@@ -77,6 +87,13 @@ HashMap.clear()
 HashMap.count()  
 
 #### List pseudo class:
+```
+Object myList = listOf(( String("1st"), Int(2), Float(3.0) ));
+
+assert(List.size(myList) == 3);
+assert(List.contains(myList, Int(2)));
+assert(List.indexOf(Float(3.0)) == 2);
+```
 listOf()  
 List.create()  
 List.first()  
