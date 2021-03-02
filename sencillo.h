@@ -1074,8 +1074,8 @@ bool __Path_Matches(http_s *request, char *__route) {
     char *routeRemaining;
     char *pathRemaining;
 
-    char *routeWordNext = strtok_r(__route, "/", &routeRemaining);
-    char *pathWordNext  = strtok_r(__path,  "/", &pathRemaining);
+    char *routeWordNext = strtok_r(route, "/", &routeRemaining);
+    char *pathWordNext  = strtok_r(path,  "/", &pathRemaining);
 
     int matches = 0;
 
